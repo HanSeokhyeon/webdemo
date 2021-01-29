@@ -41,7 +41,18 @@
 			</div>
 		</div>
 		<script>
-			window.onload = function() { document.body.classList.remove('is-preload'); }
+			function addEvent() {
+				var icons = document.querySelectorAll('.icon')
+				icons.forEach(item => {
+					item.addEventListener('click', e => {
+						console.log(e.target.innerHTML);
+					})
+				})
+			}
+			window.onload = function() {
+				document.body.classList.remove('is-preload');
+				addEvent();
+			}
 			window.ontouchmove = function() { return false; }
 			window.onorientationchange = function() { document.body.scrollTop = 0; }
 		</script>
