@@ -2,11 +2,13 @@ package com.example.webdemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 import java.util.Date;
 
 @SpringBootApplication
-public class WebdemoApplication {
+public class WebdemoApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		long logTime = getCurrentTime();
@@ -19,4 +21,8 @@ public class WebdemoApplication {
 		return new Date().getTime();
 	}
 
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+		return builder.sources(WebdemoApplication.class);
+	}
 }
